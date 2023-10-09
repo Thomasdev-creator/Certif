@@ -1,4 +1,12 @@
-import { registerReactControllerComponents } from '@symfony/ux-react';
+// assets/js/app.js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Navbar from './react/controllers/Navbar';
+
+ReactDOM.render(<Navbar />, document.getElementById('navbar-root'));
+
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import 'bootstrap/dist/css/bootstrap.css';
 import './bootstrap.js';
 /*
  * Welcome to your app's main JavaScript file!
@@ -10,4 +18,5 @@ import './bootstrap.js';
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.css';
 
+import { registerReactControllerComponents } from '@symfony/ux-react';
 registerReactControllerComponents(require.context('./react/controllers', true, /\.(j|t)sx?$/));
