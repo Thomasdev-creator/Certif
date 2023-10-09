@@ -1,9 +1,16 @@
 // assets/js/app.js
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Navbar from './react/controllers/Navbar';
+import { createRoot } from 'react-dom/client';
+import Navbar from './react/controllers/FixComponents/Navbar';
+import Footer from './react/controllers/FixComponents/Footer';
 
-ReactDOM.render(<Navbar />, document.getElementById('navbar-root'));
+const navbarRoot = createRoot(document.getElementById('navbar-root'));
+navbarRoot.render(<Navbar />);
+
+const footerRoot = createRoot(document.getElementById('footer-container'));
+footerRoot.render(<Footer />);
+
+
 
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap/dist/css/bootstrap.css';
