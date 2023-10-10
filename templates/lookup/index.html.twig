@@ -3,22 +3,18 @@
 {% block title %}Hello LookupController!{% endblock %}
 
 {% block body %}
-<div>
-    <form>
-        <input type="search" name="search" placeholder="Recherche...">
-        <button type="submit">Rechercher</button>
-    </form>
-</div>
 
 <table>
 {% for article in articles %}
+<div>
+    <h3>{{ article.title }}</h3>
+    <div>
+        <a href="{{ path('app_article_show', {'id': article.id}) }}">show</a>
+    </div>
+</div>
 <tr>
     <td>{{ article.id }}</td>
-    <td>{{ article.title }}</td>
     <td>{{ article.content }}</td>
-    <td>
-        <a href="{{ path('app_article_show', {'id': article.id}) }}">show</a>
-    </td>
 </tr>
 {% else %}
 <tr>

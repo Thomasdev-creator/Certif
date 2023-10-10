@@ -3,9 +3,9 @@
 {% block title %}Category index{% endblock %}
 
 {% block body %}
-    <h1>Category index</h1>
+    <h1 class="display-3 text-center my-4 text-dark font-weight-bold">Catégories</h1>
 
-    <table class="table">
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>Id</th>
@@ -19,15 +19,16 @@
                 <td>{{ category.id }}</td>
                 <td>{{ category.name }}</td>
                 <td>
-                    <a href="{{ path('app_category_show', {'id': category.id}) }}">show</a>
+                    <a href="{{ path('app_category_show', {'id': category.id}) }}" class="btn btn-primary btn-sm">show</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="3" class="text-center text-muted">no records found</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
 {% endblock %}
+

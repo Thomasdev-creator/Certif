@@ -3,21 +3,50 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
+<style>
+    /* Par défaut, le bouton est bleu */
+    .btn-custom {
+        background-color: blue;
+        color: white; 
+        border-color: #007bff; 
+    }
+
+    /* Au survol, le bouton devient blanc avec du texte bleu */
+    .btn-custom:hover {
+        background-color: white !important;
+        color: blue !important;
+        border-color: blue !important;
+    }
+</style>
     {% for flash_error in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
 
-    <h1>Register</h1>
+    <h1 class="display-3 text-center my-4 text-dark font-weight-bold">Register</h1>
 
     {{ form_errors(registrationForm) }}
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+    {{ form_start(registrationForm, {'attr': {'class': 'needs-validation', 'novalidate': 'novalidate'}}) }}
+        <div class="mb-3">
+            {{ form_label(registrationForm.email) }}
+            {{ form_widget(registrationForm.email, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(registrationForm.email) }}
+        </div>
 
-        <button type="submit" class="btn">Register</button>
+        <div class="mb-3">
+            {{ form_label(registrationForm.plainPassword, 'Password') }}
+            {{ form_widget(registrationForm.plainPassword, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(registrationForm.plainPassword) }}
+        </div>
+
+        <div class="mb-3">
+            {{ form_widget(registrationForm.agreeTerms, {'attr': {'class': 'form-check-input'}}) }}
+            {{ form_label(registrationForm.agreeTerms, null, {'label_attr': {'class': 'form-check-label'}}) }}
+            {{ form_errors(registrationForm.agreeTerms) }}
+        </div>
+
+        <button class="btn btn-lg btn-primary btn-custom btn-block" type="submit">
+            Sign in
+        </button>
     {{ form_end(registrationForm) }}
 {% endblock %}
