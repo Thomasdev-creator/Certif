@@ -8,23 +8,21 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>actions</th>
+                <th>Catégorie</th>
+                <th>Voir plus</th>
             </tr>
         </thead>
         <tbody>
         {% for category in categories %}
             <tr>
-                <td>{{ category.id }}</td>
                 <td>{{ category.name }}</td>
                 <td>
-                    <a href="{{ path('app_category_show', {'id': category.id}) }}" class="btn btn-primary btn-sm">show</a>
+                    <a href="{{ path('app_category_show', {'id': category.id}) }}" class="btn btn-primary btn-sm">Voir</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="3" class="text-center text-muted">no records found</td>
+                <td colspan="3" class="text-center text-muted">Aucun article trouvé</td>
             </tr>
         {% endfor %}
         </tbody>

@@ -3,8 +3,11 @@
 {% block title %}New Comment{% endblock %}
 
 {% block body %}
-    <h1>Create new Comment</h1>
-
-    {{ include('comment/_form.html.twig') }}
-
+    <div class="container mt-5">
+        <h1 class="display-6 text-center my-4 text-dark font-weight-bold">Laisser votre commentaire</h1>
+        
+        <div class="mt-4">
+            {{ include('comment/_form.html.twig') }}
+        </div>
+    </div>
 {% endblock %}
