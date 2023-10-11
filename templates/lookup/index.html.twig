@@ -4,23 +4,33 @@
 
 {% block body %}
 
-<table>
-{% for article in articles %}
-<div>
-    <h3>{{ article.title }}</h3>
-    <div>
-        <a href="{{ path('app_article_show', {'id': article.id}) }}">show</a>
-    </div>
+<div class="container mt-5">
+    <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Content</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for article in articles %}
+            <tr>
+                <td>{{ article.id }}</td>
+                <td>{{ article.title }}</td>
+                <td>{{ article.content }}</td>
+                <td>
+                    <a href="{{ path('app_article_show', {'id': article.id}) }}" class="btn btn-info btn-sm">Show</a>
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="4" class="text-center">No records found</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </div>
-<tr>
-    <td>{{ article.id }}</td>
-    <td>{{ article.content }}</td>
-</tr>
-{% else %}
-<tr>
-    <td colspan="4">no records found</td>
-</tr>
-{% endfor %}
-</table>
 
 {% endblock %}
